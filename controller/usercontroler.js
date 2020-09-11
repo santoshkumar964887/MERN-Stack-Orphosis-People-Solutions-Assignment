@@ -31,12 +31,12 @@ let data = await userModel.create(req.body);
   res.status(201).json({
     status: "success",
     data: {
-      user,
+      data,
     },
   });
 });
 exports.updateuser = catchAsync(async (req, res) => {
-  const user= await tourModel.findByIdAndUpdate(req.params.id, req.body, {
+  const user= await userModel.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
   if(!user){
@@ -45,7 +45,7 @@ exports.updateuser = catchAsync(async (req, res) => {
 
   res.status(200).json({
     status: "success",
-    length: tour.length,
+    length: user.length,
     data: {
       user,
     },
