@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import axios from "axios";
+import React,{useEffect,useState} from 'react';
+import axios from './components/axios/axios';
 import './App.css';
+import Header from './components/header/header';
 import { Switch, Route } from "react-router-dom";
-class App extends Component {
-
-  constructor(){
-    super();
-    this.state = {
-    search:"",
-    error: "",
-    posts: [],
-    };
-
-  }
+import Create from './components/create/create';
+import View from './components/view/view';
+const App=()=>{
+const [data,setdata]=useState([])
+ useEffect(()=>{
+    axios.get('/').then(res=>setdata(res.data.data.user));
+  },[])
 
 
- render() {
-    
+ 
+   console.log(data); 
     return (
-      <div>santosh</div>
-      // <Switch>
+      <div>
+        <Header/>
+      
+      <Switch>
           
-      //       <Route exact path="/signin" component={SignInAndSignUpPage} />
-      //       <Route path="/order" component={OrderUpPage} />
+        <Route exact path="/create" component={Create} />
+        <Route path="/order" component={View} />
             
             
-      //     </Switch>
+       </Switch>
+       </div>
     );
-  }
+  
 }
 
 export default App;
