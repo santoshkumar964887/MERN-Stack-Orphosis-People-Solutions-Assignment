@@ -1,6 +1,12 @@
 import React from 'react'
 
-export default function create() {
+export default class create extends React.Component {
+    constructor(){
+        super();
+        
+        
+    }
+    render(){
     return (
         <form>
   <div className="form-group">
@@ -24,5 +30,6 @@ export default function create() {
     <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Short BIO"/>
   </div>
 </form>
-    )
+    );
+}
 }
