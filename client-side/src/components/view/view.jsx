@@ -20,13 +20,32 @@ const View = () => {
   };
   const handleSerch=(e)=>{
     e.preventDefault();
-    const data1=data.includes(serchName);
-    console.log(data1)
+    const data1=data.filter(el=>el.firstName.toLowerCase().includes(serchName.toLowerCase()))
+   setdata(data1);
   }
   const handleSerchInput=(e)=>{
     setserchNmae( e.target.value);
   }
-  console.log(serchName);
+  const handleCheck=(e)=>{
+
+    if(e.target.checked){
+      data.sort((a, b) => {
+        let fa = a.firstName.toLowerCase(),
+            fb = b.firstName.toLowerCase();
+    
+        if (fa < fb) {
+            return -1;
+        }
+        if (fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    
+    } 
+    setdata(data);
+  }
+  
   console.log(data);
   return (
     <div className="container1">
@@ -34,6 +53,11 @@ const View = () => {
   <form className="form-inline">
     <input className="form-control mr-sm-2" type="search" value={serchName} onChange={(e)=>handleSerchInput(e)} placeholder="Search By First Name" aria-label="Search"/>
     <button className="btn btn-outline-dark my-2 my-sm-0" onClick={(e)=>handleSerch(e)} type="submit">Search</button>
+    
+    <div className="form-check ml-3">
+    <input type="checkbox" onClick={handleCheck} className="form-check-input" id="exampleCheck1"/>
+    <label className="form-check-label" for="exampleCheck1">sort Last name</label>
+  </div>
   </form>
 </nav>
       <table className="table table-hover">
