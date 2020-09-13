@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "../axios/axios";
+import editModel from '../editModel/editmodel';
 import "./view.style.scss";
 const View = () => {
   const [data, setdata] = useState([]);
   const [datachange, setdatachange] = useState("");
   const [serchName, setserchNmae] = useState("");
+  const [serchName1, setserchNmae1] = useState("");
   useEffect(() => {
     axios.get("/").then((res) => setdata(res.data.data.user));
   }, [datachange]);
@@ -44,7 +46,11 @@ const View = () => {
     
     } 
     setdata(data);
+    setserchNmae1("once render")
+ 
   }
+  useEffect(()=>
+  console.log(data),[serchName1]);
   
   console.log(data);
   return (
