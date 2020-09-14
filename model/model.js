@@ -1,4 +1,5 @@
 const mongooes = require("mongoose");
+//designing schema
 const userSchema = new mongooes.Schema({
   firstName: {
     type: String,
@@ -29,7 +30,6 @@ const userSchema = new mongooes.Schema({
     trim: true,
   },
 });
-
-
-const userModel = mongooes.model("User",userSchema);
+// model of schema
+const userModel = mongooes.model("User", userSchema);
 module.exports = userModel;

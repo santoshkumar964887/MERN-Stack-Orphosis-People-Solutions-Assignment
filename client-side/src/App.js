@@ -8,9 +8,11 @@ const App=()=>{
 
     return (
       <div>
+        {/* header outside routes */}
         <Header/>
       
       <Switch>
+        {/* Handling routes */}
           
         <Route exact path="/create" component={Create} />
         <Route path="/view" component={View} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 const  header=()=>{
+  //design Header and handle routes
     return (
         <nav className="navbar navbar-dark bg-dark justify-content-between">
         <Link to="/" className="navbar-brand" style={{color:"white"}}>Orphosis People Solutions Practical Test</Link>

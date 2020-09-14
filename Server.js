@@ -2,6 +2,7 @@ const app = require("./app");
 const dotenv = require("dotenv");
 const mongooes = require("mongoose");
 dotenv.config({ path: "./config.env" });
+//connecting with MongoDB server
 mongooes
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -12,8 +13,8 @@ mongooes
   .then((con) => {
     console.log("data base connected");
   });
-
+// Listening to  server on port number 9000
 const port = 9000;
 app.listen(port, () => {
-  console.log("App is running on port number ",port);
+  console.log("App is running on port number ", port);
 });
