@@ -14,7 +14,7 @@ mongooes
     console.log("data base connected");
   });
 // Listening to  server on port number 9000
-const port = 9000;
+const port = process.env.PORT || 9000;
 app.listen(port, () => {
   console.log("App is running on port number ", port);
 });

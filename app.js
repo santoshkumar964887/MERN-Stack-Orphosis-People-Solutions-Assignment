@@ -3,7 +3,10 @@ const AppError = require("./ErrorController/appError");
 const tourRouter = require("./Router/userRouter");
 const globalErrorHandler=require('./ErrorController/globalError');
 const cors=require('cors');
+const bodyParser = require('body-parser');
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //built-in middleware function in Express. It parses incoming requests with JSON
 app.use(express.json());
 // Cross-origin resource sharing (CORS) is a mechanism
